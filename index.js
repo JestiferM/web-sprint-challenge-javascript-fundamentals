@@ -15,10 +15,10 @@ function myFunction() {
 }
 myFunction();
 
+
 //🚀🚀🚀 ⬇️ 📝 Explanation ⬇️ 📝 🚀🚀🚀: 
 
-
-
+// The nested function can access the variable internal because the nested function is inside of the external function so when we call internal it reaches up until it finds internal and gets access to it outside of the function.
 
 
 /* 🚀🚀🚀 Task 2: Counter 🚀🚀🚀 */
@@ -28,11 +28,13 @@ myFunction();
     
 For example, `summation(4)` should return 10 because 1+2+3+4 is 10. Note, you may use a for loop for this function if you wish */
 
-function summation(number) {
-  number = 0; number < 10; number ++;
- 
+function summation() {
+  let count = 0;
+  return function counter(){
+    return count ++
+  }
 }
-
+const counter = summation();
 
 // 🦁🦁🦁 Topic 2: ADVANCED Array Methods 🦁🦁🦁
 // Given this zoo data from around the United States, follow the instructions below. Use the specific array methods in the requests below to solve the problems.
@@ -63,7 +65,7 @@ const zooAnimals = [
   });
   return displayNames
   }
-  console.log('task 1', animalNames(zooAnimals));
+  console.log('task 2', animalNames(zooAnimals));
 
   /* 🦁🦁🦁 Request 2: .map() 🦁🦁🦁
   The zoo needs a list of all their animal's names converted to lower case. 
@@ -77,7 +79,7 @@ const zooAnimals = [
     })
     return lowerCase;
   }
-  console.log('task 2', lowerCaseNames(zooAnimals));
+  console.log('task 3', lowerCaseNames(zooAnimals));
 
   /* 🦁🦁🦁 Request 3: .filter() 🦁🦁🦁
   The zoo is concerned about animals with a lower population count. 
@@ -90,7 +92,7 @@ const zooAnimals = [
     })
     return lowPops;
   }
-  console.log('task 3', lowPopulationAnimals(zooAnimals));
+  console.log('task 4', lowPopulationAnimals(zooAnimals));
 
   /* 🦁🦁🦁 Request 4: .reduce() 🦁🦁🦁
   The zoo needs to know their total animal population across the United States. 
@@ -104,7 +106,7 @@ const zooAnimals = [
     }, 0);
     return totalPop
   }
-  console.log('task 4', USApop(zooAnimals));
+  console.log('task 5', USApop(zooAnimals));
   
   // 🦁🦁🦁 Callbacks 🦁🦁🦁  
   /* 🦁🦁🦁 Step 1: Create a higher-order function 🦁🦁🦁
@@ -223,12 +225,6 @@ class cuboidTwo extends CuboidMakerTwo{
     this.surfaceArea = surfaceArea;
   }
 }
-
-// const  = new cuboidTwo({
-// length: 4,
-// width: 5,
-// height: 5
-// });
 
 //🦄🦄🦄 Test your volume and surfaceArea methods by uncommenting the logs below: 🦄🦄🦄
 // console.log(cuboidTwo.volume()); // 100
