@@ -2,6 +2,8 @@
 /* 🚀🚀🚀🤓 Task 1: 🤓🚀🚀🚀 
 Study the code below and explain in your own words why nested function can access the variable internal. */
 
+const { COMPARISON_BINARY_OPERATORS } = require("@babel/types");
+
 const external = "I'm outside the function";
 
 function myFunction() {
@@ -28,13 +30,11 @@ myFunction();
     
 For example, `summation(4)` should return 10 because 1+2+3+4 is 10. Note, you may use a for loop for this function if you wish */
 
-function summation() {
-  let count = 0;
-  return function counter(){
-    return count ++
-  }
+function summation(number) {
+  for(let i= 0; i < summation.length; i++)
+  return i + number
 }
-const counter = summation();
+console.log('task 1', summation(4))
 
 // 🦁🦁🦁 Topic 2: ADVANCED Array Methods 🦁🦁🦁
 // Given this zoo data from around the United States, follow the instructions below. Use the specific array methods in the requests below to solve the problems.
@@ -218,17 +218,15 @@ class CuboidMakerTwo{
   }
 }
 
-class cuboidTwo extends CuboidMakerTwo{
-  constructor(length, width, height, volume, surfaceArea){
-    super(length, width, height, volume, surfaceArea)
-    this.volume = volume;
-    this.surfaceArea = surfaceArea;
-  }
-}
+const cuboidTwo = new CuboidMakerTwo({
+  length: 4,
+  width: 5,
+  height: 5
+})
 
 //🦄🦄🦄 Test your volume and surfaceArea methods by uncommenting the logs below: 🦄🦄🦄
-// console.log(cuboidTwo.volume()); // 100
-// console.log(cuboidTwo.surfaceArea()); // 130
+console.log(cuboidTwo.volume()); // 100
+console.log(cuboidTwo.surfaceArea()); // 130
 
 
   /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
