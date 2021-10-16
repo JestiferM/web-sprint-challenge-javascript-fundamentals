@@ -173,7 +173,7 @@ function CuboidMaker(properties){
   2 * (length * width + length * height + width * height)  */
 
 CuboidMaker.prototype.surfaceArea = function(){
-return this.length * this.width + this.length * this.height + this.width * this.height
+return 2 * (this.length * this.width + this.length * this.height + this.width * this.height) 
 };
 
 
@@ -182,8 +182,8 @@ return this.length * this.width + this.length * this.height + this.width * this.
   Create an object called cuboid that uses the new keyword to use our CuboidMaker constructor
   Add properties and values of length: 4, width: 5, and height: 5 to cuboid. */
 
-function newCuboid(properties, volume, surfaceArea){
-  CuboidMaker.call(this, properties, volume, surfaceArea);
+function newCuboid(properties){
+  CuboidMaker.call(this, properties);
 }
 newCuboid.prototype = Object.create(CuboidMaker.prototype);
 
@@ -203,19 +203,36 @@ console.log(cuboid.surfaceArea()); // 130
 // 🦄🦄🦄 Topic 4: Classes 🦄🦄🦄 //
 //🦄🦄🦄 1. Take your prototypes from above and refactor into class syntax. Please rename your class CuboidMakerTwo and your object cuboidTwo 🦄🦄🦄
 class CuboidMakerTwo{
-  
+  constructor({length, width, height}){
+    this.length = length;
+    this.width = width;
+    this.height = height;
+  }
+  volume(){
+    return this.length * this.width * this.height;
+  }
+  surfaceArea(){
+    return 2 * (this.length * this.width + this.length * this.height + this.width * this.height) 
+  }
 }
 
+class cuboidTwo extends CuboidMakerTwo{
+  constructor(length, width, height, volume, surfaceArea){
+    super(length, width, height, volume, surfaceArea)
+    this.volume = volume;
+    this.surfaceArea = surfaceArea;
+  }
+}
+
+// const  = new cuboidTwo({
+// length: 4,
+// width: 5,
+// height: 5
+// });
 
 //🦄🦄🦄 Test your volume and surfaceArea methods by uncommenting the logs below: 🦄🦄🦄
 // console.log(cuboidTwo.volume()); // 100
 // console.log(cuboidTwo.surfaceArea()); // 130
-
-
-
-
-
-  
 
 
   /* 🛑🛑🛑🛑🛑 Please do not modify anything below this line 🛑🛑🛑🛑🛑 */
